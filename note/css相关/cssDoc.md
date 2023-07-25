@@ -150,3 +150,23 @@ normal flow (正常布局流)文本流是html默认的布局方式
   - sticky
 - 表格布局
 - 多列布局
+### 外边距折叠
+两个相邻元素的外边距接触的时候会保留最大者而不是都显示
+### position
+- static (default)
+  - 默认不会脱离文本流
+- relative 相对定位 
+  - 相对于它自己在正常的文本流的位置
+  - 设置top bottom left right可以偏移
+  - margin将不会出现外边距消失的问题
+- absolute  绝对定位
+  - 它相对的是包含他的具有position：relative的父元素，否则就是初始块
+  - 脱离正常的文本流，独立一层，
+  - z-index:0(default) 设置显示的顺序，屏幕的z轴，越大越显示在前面
+- fixed 固定定位
+  - 跟absolute一样 脱离正常的文本流
+  - 相对于浏览器的窗口
+- sticky 粘性布局
+  - 效果是相对定位元素在滚动到一定位置变成固定定位的元素
+  - top bottom left rigth 设置偏移量
+  
