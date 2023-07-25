@@ -1,4 +1,6 @@
 # HTML
+`<canvas>`
+`<a>`
 > html5  
 > 语义化标签可以顾名思义  
 使用的场景：
@@ -36,8 +38,11 @@
 - 时间和日期
 ## 超链接
 属性值
-- `download` href指向的是下载的资源，download来指定下载资源的名称
+- `download` href指向的是下载的资源，download来指定下载资源的
 - `title` 悬停提示
+- target 链接打开的位置
+  - target:_self | _top | _parent
+  - target: _blank 新标签或者新窗口打开
 ## [多媒体](#替换元素)
 ## 嵌入技术
 `<iframe>` 

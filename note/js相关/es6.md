@@ -1,4 +1,8 @@
 # ES6     
+- 深拷贝浅拷贝
+- await async
+- 数组的方法
+-
 ## 1-1 声明方式（6）
 `let const var function class import`
 含义不同从以下几个角度：赋值+作用域（全局、函数、块级{}）+声明提升+暂时性死区

@@ -1,8 +1,14 @@
 # CSS
+>补充20230725
+- antd组件
+- 引入方法
+- less
+- 重排重绘
+> index
 - [选择器](#选择器)（[层叠与继承](#层叠-优先级-继承)）
-- 布局
-- 盒模型
-- 响应式
+- [布局](#布局)
+- [盒模型](#盒模型块级元素-2种)
+- [响应式](#)
 ## css中的函数
 - `width: calc(90% - 30px);`
 - `transform: rotate(0.8turn)` 只能转换由盒模型定位的元素  
@@ -169,4 +175,33 @@ normal flow (正常布局流)文本流是html默认的布局方式
 - sticky 粘性布局
   - 效果是相对定位元素在滚动到一定位置变成固定定位的元素
   - top bottom left rigth 设置偏移量
+> 脱离文本流的元素的位置将不会被保留
+### float浮动布局 （传统的方式）
+脱离文本流，其他元素会呈现出围绕着浮动元素的效果，并且盒子会在下方被覆盖（对其他元素产生了影响）
+- 文字为什么会围绕效果：行内盒子被缩短
+- 段落盒子会在下方被浮动元素覆盖，保持原本大小（浮动的影响）
+- 需要清除浮动达到的效果--其他元素不应该跟随浮动元素
+#### 清除浮动
+- 包含浮动元素的父元素后方添加空的div并给div添加清除浮动
+  - 伪元素方法 `wrapper::after{clear:both;display:block;content:''}`
+- 设置包裹元素 overflow除visible之外的值
+  - overflow:auto
+  - 原理是创建了BFC 将浮动元素与其他元素隔离起来清除浮动
+  - 存在副作用：可能生成滚动条
+- 包裹元素添加`display：flow-root`（非小技巧-现代方法） 
   
+### 弹性布局 flex
+- `display:flex` 添加到父元素盒子上，**子元素**将会按照flex的设置显示
+- flex-item 
+  - align-items 纵轴方向的排列方式
+    - align-self 设置单个item的排列方式，在子元素上单独设置
+  - justify-content 主轴方向排列方式
+- `flex-flow: [row|column]|[wrap]`
+- flex:1 的含义 1代表的比例（100%） 每个元素**等分** 每个元素都是一个flex-item
+  - 如果有一个元素是flex:2 （三个元素有一个占2，则相当于有了4个flex-item, 有一个占2/4）
+  - flex 是一个缩写属性 `flex: flex-grow flex-shrink flex-basis`
+
+- 给子元素设置order来改变排列的顺序
+  - order:0 (default)
+  - 递增顺序显示 0排最前面
+

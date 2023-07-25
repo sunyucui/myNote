@@ -1,0 +1,17 @@
+* {
+    margin:0;
+    padding: 0;
+}
+
+.shortcut {
+    border-bottom: 1px solid #ddd;
+    background-color: #e3e4e5;
+}
+.shortcut .content {
+    height: 30px;
+    line-height: 30px;
+    color: #999;
+}
+.shortcut .content .addr, .shortcut .content .webVersion{
+    float: left;
+}
