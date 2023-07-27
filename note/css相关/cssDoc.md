@@ -17,6 +17,7 @@
 - `@import 'style2.css'` 引入外部的样式表
 - `@media (min-width:300em)` 创建媒体查询
 ## 选择器
+!important
 - 全局选择器 `*`
 - 元素选择器 `标签名`
 - 类选择器 `.`
@@ -67,7 +68,8 @@ box :
   - `overflow-y:scroll` 纵向滚动
   - `overflow: hidden scroll` 两个值时第一个x生效第二个y生效
 - `overflow:auto` 溢出自动添加滚动条  
-### 溢出=>BFC overflow的默认值被改变也就代表着盒子成为一个块级排版内容，与其他内容相互隔离并且有了尺寸的协调  
+### 溢出=>BFC overflow的默认值被改变也就代表着盒子成为一个块级排版内容，与其他内容相互隔离并且有了尺寸的协调 
+**BFC创建方式**
 ### 单个单词断行控制
 单词超过盒子 会自动断行，自动断行后如果单词整体还是超出盒子 则存在以下控制
 work-break 只控制单个单词的断点
@@ -146,6 +148,7 @@ normal flow (正常布局流)文本流是html默认的布局方式
 - display
   - block  inline  block-inline
   - ***flex*** 弹性布局 定义横向/纵向
+  所有的效果
   - ***grid*** 网格布局 定义横向+纵向
 - float 脱离文本流
 - position 
@@ -204,4 +207,5 @@ normal flow (正常布局流)文本流是html默认的布局方式
 - 给子元素设置order来改变排列的顺序
   - order:0 (default)
   - 递增顺序显示 0排最前面
+
 

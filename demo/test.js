@@ -1,1 +1,0 @@
-const str = '&lt;body&gt;\n \n \n易洋&lt;p&gt;&lt;img style=&quot;border-radius: 4px;&quot; src=&quot;https://image-c.weimobwmc.com/saas-wxbiz/979af82f4e24408e855c875f405f9318.png&quot; /&gt;&lt;img style=&quot;border-radius: 4px;&quot; src=&quot;https://image-c.weimobwmc.com/saas-wxbiz/d171a685e1ed455cbfb1439035d30459.png&quot; /&gt;&lt;/p&gt;\n \n&lt;/body&gt;'
