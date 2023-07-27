@@ -1,18 +1,87 @@
 
 /**
+ * async awiat
+ */
+function fn1() {
+    return new Promise(res => {
+        setTimeout(() => {res('ok1')},200)
+    })
+}
+function fn2() {
+    return new Promise(res => {
+        setTimeout(() => {res('ok2')},200)
+    })
+}
+async function asyncFn() {
+    const res1 = await fn1();
+    const res2 = await fn2();
+    // const res = await Promise.all([
+    //     fn1(),
+    //     fn2()
+    // ])
+    console.log(res1,res2)
+}
+asyncFn()
+/**
  * Promise
  * 状态改变后 由then接收处理
  */
-const myPromise = new Promise((resolve,reject) => {
-    setTimeout(() => {
-        //reject('sobad')
-        resolve('success!')
-    },5000)
-}).then((msg) => {
-    console.log(msg)
-},(err) => {
-    console.log(err)
-})
+
+// // 测试值穿透
+// Promise.resolve(1)
+//     .then(() => {return 2})
+//     .then(() => {
+//         Promise.resolve(3)
+//     })
+//     .then(console.log)
+// //undefined
+
+// Promise.resolve(1)
+//     .then(() => {return 2})
+//     .then(() => {return 3})
+//     .then(console.log)
+// // 3
+// Promise.resolve(1)
+//     .then(2)
+//     .then(Promise.resolve(3))
+//     .then(console.log)
+// // 1
+
+
+// const p1 = 1;
+// const p2 = Promise.resolve(2);
+// const p3 = Promise.resolve('33');
+// const p4 = new Promise((res,rej) => {
+//     setTimeout(() => {
+//         res('4-ok')
+//     },5000)
+// })
+// const p5 = new Promise((res,rej) => {
+//     setTimeout(() => {
+//         rej('5')
+//     },3000)
+// })
+
+// Promise.all([p4, p2, p1, p3,p5]).then((res) => {
+//     console.log(res)
+// }).catch((err) => {
+//     console.log(err)
+// })
+
+
+
+
+// const myPromise = new Promise((resolve,reject) => {
+//     setTimeout(() => {
+//         //reject('sobad')
+//         resolve('success');
+//     },100)
+// }).then((msg) => {
+//     console.log(msg)
+// },(err) => {
+//     console.log(err)
+// })
+
 
 /**
  * 继承的方法
