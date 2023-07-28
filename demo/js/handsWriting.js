@@ -1,27 +1,112 @@
+/**
+ * Reflect
+ */
+console.log(Reflect.has(Object, 'assign'))
+
+
+/**
+ * proxy
+ */
+
+/**
+ * Procy.revocable()
+ * 返回一个可以收回代理权的Proxy
+ */
+// let target = {};
+// let handler = {};
+// let {proxy, revoke} = Proxy.revocable(target,handler);
+// proxy.name='syc';
+// console.log(proxy.name);
+// revoke();
+// console.log(proxy.name)
+// TypeError: Cannot perform 'get' on a proxy that has been revoked
+
+/**
+ * get操作
+ * get:function(target[目标对象]，prop[获取的属性名]，receiver[Proxy|继承Proxy的对象])
+ * 拦截取值操作
+ */
+// const proxy = new Proxy({},{
+//     get : function(target, key, receiver){
+//         return receiver;
+//     }
+//  }  
+// )
+// // d对象本身没有a属性，所以读取d.a的时候，会去d的原型proxy对象找。
+// // 这时，receiver就指向d，代表原始的读操作所在的那个对象
+// const d = Object.create(proxy);
+// console.log(d.a == d)
+
+
+//函数的链式使用
+// var c = 0;
+// var pipe = function(value) {
+    
+//     var queue = [];
+//     var proxy = new Proxy({},{
+//         // 怎么循环起来的
+//         get : function(target,prop) {
+//             console.log(c++,prop)
+//             if(prop == 'get') {
+//                 return queue.reduce((val,fn) => fn(val),value);
+//             }
+//             queue.push(window[prop]);
+//             return proxy;
+//         }
+//     })
+//     return proxy;
+// }
+//   var double = n => n * 2;
+//   var pow    = n => n * n;
+//   var reverseInt = n => n.toString().split("").reverse().join("") | 0;
+//   console.log(pipe(3).double.pow.reverseInt.get)
+  
+
+// 数组负索引
+// function createArray(...elements) {
+//     let target = [];
+//     target.push(...elements);
+//     let handler = {
+//       get(target, propKey, receiver) {
+//           let index = Number(propKey);
+//           if(index < 0) {
+//             propKey = String(target.length + index);
+//           }
+//           return Reflect.get(target,propKey,receiver);
+//       }
+      
+//     }
+  
+//     return new Proxy(target,handler);
+//   }
+  
+//   // let arr = [1, 2, 3, 4];
+//   let arr = createArray(1,2,3,4)
+//   console.log(arr[-2])
 
 /**
  * async awiat
  */
-function fn1() {
-    return new Promise(res => {
-        setTimeout(() => {res('ok1')},200)
-    })
-}
-function fn2() {
-    return new Promise(res => {
-        setTimeout(() => {res('ok2')},200)
-    })
-}
-async function asyncFn() {
-    const res1 = await fn1();
-    const res2 = await fn2();
-    // const res = await Promise.all([
-    //     fn1(),
-    //     fn2()
-    // ])
-    console.log(res1,res2)
-}
-asyncFn()
+// function fn1() {
+//     return new Promise(res => {
+//         setTimeout(() => {res('ok1')},200)
+//     })
+// }
+// function fn2() {
+//     return new Promise(res => {
+//         setTimeout(() => {res('ok2')},200)
+//     })
+// }
+// async function asyncFn() {
+//     const res1 = await fn1();
+//     const res2 = await fn2();
+//     // const res = await Promise.all([
+//     //     fn1(),
+//     //     fn2()
+//     // ])
+//     console.log(res1,res2)
+// }
+// asyncFn()
 /**
  * Promise
  * 状态改变后 由then接收处理
