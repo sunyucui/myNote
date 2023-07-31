@@ -92,3 +92,122 @@ promise的值穿透
 
 ## Reflect
 Reflect对象上有Object/Proxy的默认行为
+
+## DOM(文档对象模型)
+ 形式：节点树（页面），提供API来处理DOM节点  
+ HTML文档  基本单位是标签  
+ DOM文档模型提供操作文档的API  
+ DOM节点--树的组成单元  node对应标签，对应js对象
+ DOM树  节点父子关系连接形成树结构    
+### 节点，节点类型，节点类  
+- 节点类型 node.nodeType可以获取
+  - 元素节点
+  - 文本节点
+  - Document节点
+  - 注释节点   
+
+节点类继承关系：
+- a---HTMLAnchorElement---HTMLElement---ELement---Node---EvenTarget
+- HTMLAnchorElement 
+  - `a.target  a.download ` 
+- HTMLElement
+  - `title  hidden click()  `
+- Element
+  -  `tagName  className  getAttribute() setAttribute()  `
+- Node
+  - `nodeType appendChild() removeChild()`  
+- EvenTarget 
+  - `继承了事件相关`  
+### 节点操作-不改变dom结构
+#### DOM的搜索查询
+- （推荐） document/element.querySelector(CSSSelector)/querySelectorAll(CSSSelector)
+  - 返回结果是静态的
+  - 类型是Node
+- document 
+   - document.getElementById()
+   - document.getElementsByName()
+   - 类型是Element
+- document/element.getElementsByTagName() 类型是Element
+- document/element.getElementsByClassName() 类型是Element
+#### 特性和属性
+Attribute
+- elem.getAttribute('attrName')
+- elem.setAttribute('attrName','attrValue')
+- elem.hasAttribute('attrName')
+- elem.removeAttribute('attrName')
+- data-name-name2 自定义属性
+  - elem.dataset.nameName2
+#### 类和样式
+- elem.style.color='red'
+#### 位置和尺寸
+### 节点操作-改变dom结构
+#### 插入
+- parentNode.append(...node) 父级
+- parentNode.prepend()  父级
+- node.before() 同级
+- node.after() 同级
+- (传统) parentNode.appendChild(node)
+- (传统) parentNode.insertBefore(node,nextNode)
+#### 删除
+- node.remove()
+- (传统) node.parentNode.removeChild(node)
+#### 替换
+- node.replaceWith(otherNode)
+- (传统) parentNode.replaceChild(newNode,node)
+
+## 事件处理
+事件流： 元素上可以定义事件，元素嵌套，事件也嵌套产生。  
+3阶段事件流： **1**事件捕获（外部到目标）--> **2**目标阶段 -->  **3**事件冒泡（目标到外部）
+***    
+3种事件处理函数方式：
+- HTML特性 
+  - `<div onclick="func()">` 
+  - 是处理函数的调用
+  - `node.click = function(event) {func()}`
+  - 在特性中事件变量是event 不能写成e
+- DOM0级事件
+  - `div.onclick = func(e){}`
+  - 函数赋值
+- DOM2级事件（**推荐**）
+  - `div.addEventListener(event, handler,capture)`
+  - capture:true/false 是否在捕获阶段响应
+  - `div.removeEventListener(event, handler)` handler必须是同一个函数体
+***
+事件对象 event
+- 取消事件默认行为 `event.preventDefault()`
+- 停止继续向上冒泡 `event.stopPropagation()`
+- 停止继续向上冒泡和其他处理函数 `event.stopImmediatePropagation()`
+- 事件目标 `event.target`
+- 事件当前目标 `event.currentTarget`
+- 事件类型 `event.type`  
+***
+### 各种事件
+- 鼠标事件
+- 键盘事件
+- 资源事件
+***
+鼠标事件  
+点击
+- `click` 点击
+- `contextmenu` 右击（默认行为是显示右击菜单）
+- `mousedown` 按下
+- `mouseup` 抬起
+
+移动
+- `mouseenter/mouseleave`
+- `mouseover/mouseout`
+- `mousemove ` 
+
+坐标
+- `event.pageX/pageY` -- 相对于文档的坐标。
+- `event.clientX/clientY` -- 相对于窗口的坐标。
+- `event.screenX/screenY` -- 相对于屏幕的坐标，较少使用
+***
+资源事件--页面的生命周期
+- DOMContentLoaded DOM构建完
+- load 页面加载完，此时操作都是安全的
+- beforeunload 打算离开
+- unload 已经离开
+- onload事件 资源加载完毕
+***
+### 表单操作

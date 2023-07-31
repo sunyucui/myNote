@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test DOM</title>
+    <style>
+        .second{
+           color: red; 
+        }
+        #div1,#div2,#div3,#div4{
+            text-align:center;
+            width: 200px;
+            height: 50px;
+        }
+        #div1,#div3{
+            background-color: aquamarine;
+        }
+        #div2,#div4{
+            background-color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <!-- 表单 -->
+    <form name="myForm">
+        <input type="text" name="user" placeholder="user"/><br/>
+        <input type="number" name="age" placeholder="age"/><br/>
+        <input type="email" name="email" placeholder="email"/><br/>
+        <input type="radio" name="sex" value="male">male</input>
+        <input type="radio" name="sex" value="female">female</input><br/>
+        <input type="checkbox" name="hobby" value="movie">movie</input>
+        <input type="checkbox" name="hobby" value="paint">paint</input>
+        <input type="checkbox" name="hobby" value="dance">dance</input>
+        <input type="checkbox" name="hobby" value="sing">sing</input>
+        <button type="submit"> submit</button>
+    </form>
+    <!-- 添加事件-1 -->
+    <!-- <div id="div1" onclick="alert(event.type + ': div1')">
+        div1
+    </div>
+    <div id="div2" onclick="handler('div2',event)">div2</div>
+    <div id="div3" onclick="handler('div3',event)">
+        <div id="div3-1" onclick="handler('div3-1',event)">
+            <div id="div3-2" onclick="handler('div3-2',event)">
+                <button id="btn">btn</button>
+            </div>
+        </div>
+        div3
+    </div>
+    <div id="div4">div4</div> -->
+    <!-- <div>
+        <p class="first" id="first-id" name="para" hidden>
+            aa
+            <span>aa-aa</span>
+        </p>
+        <p class="second" name="para" data-param-name="secondName">bb</p>
+        <p class="third" id="third">cc</p>
+        <text>hh</text>
+    </div> -->
+
+    <script>
+        /**
+         * 表单操作
+         */
+        let myForm = document.forms.myForm;
+        let user = myForm.user;
+        let age = myForm.age;
+        let email = myForm.email;
+        let sex = myForm.sex;
+        let userSex = sex[0].checked ? 'male' : 'female'
+        let hobby = myForm.hobby
+
+
+
+
+
+        /**
+         * 事件处理
+         */
+        // 添加事件-2
+        function handler(msg, event) {
+            // 取消事件的默认行为 自带的一种函数行为 比如a的自动跳转
+            // event.preventDefault()
+            // 停止向上冒泡
+             event.stopPropagation()
+
+            console.log('target: '+ event.target)
+            console.log('current.target: '+event.currentTarget)
+            console.log('phase: '+event.phase)
+            console.log('----------')
+            alert(event.type+': '+msg)
+        }
+    
+        
+        // const div3 = document.querySelector('#div')
+        // const btn = document.querySelector('#btn')
+        // const div4 = document.querySelector('#div4')
+        // 添加事件-3
+        // div3.onclick = e => handler('div3',e)
+        // btn.onclick = e => handler('btn',e)
+        // 添加事件-4
+        // div4.addEventListener('click', e => handler('div4', e))
+        // btn.addEventListener('click', e => handler('btn', e),false)
+        // div4.addEventListener('click', e => clickHandler(e))
+        // div4.addEventListener('contextmenu', e => contextmenuHandler(e))
+        // div4.addEventListener('dbclick', e => dbclickHandler(e))
+        //   div4.addEventListener('mouseenter', e => mouseenterHandler(e))
+        //  div4.addEventListener('mouseleave', e => mouseleave(e))
+        // div4.addEventListener('mousemove', e => mousemoveHandler(e))
+        // div4.addEventListener('mousedown', e => mousedownHandler(e))
+        // div4.addEventListener('mouseup', e => mouseupHandler(e))
+        function clickHandler(e){
+            alert(e.type)
+        }
+        function contextmenuHandler(e){
+            e.preventDefault()
+            alert(e.type)
+        }
+        function dbclickHandler(e){
+            e.preventDefault()
+            alert(e.type)
+        }
+        function mouseenterHandler(e){
+            console.log(e.type+'i enter')
+            console.log('pageXY: '+'['+e.pageX+','+e.pageY+']')
+            console.log('clientXY: '+'['+e.clientX+','+e.clientY+']')
+            console.log('screenXY: '+'['+e.screenX+','+e.screenY+']')
+        }
+        function mouseleave(e){
+            console.log(e.type+'i leave')
+            console.log('pageXY: '+'['+e.pageX+','+e.pageY+']')
+            console.log('clientXY: '+'['+e.clientX+','+e.clientY+']')
+            console.log('screenXY: '+'['+e.screenX+','+e.screenY+']')
+        }
+        function mousemoveHandler(e){
+            console.log(e.type+'i move')
+            console.log('pageXY: '+'['+e.pageX+','+e.pageY+']')
+            console.log('clientXY: '+'['+e.clientX+','+e.clientY+']')
+            console.log('screenXY: '+'['+e.screenX+','+e.screenY+']')
+        }
+        function mousedownHandler(e){
+            console.log(e.type+'i down')
+        }
+        function mouseupHandler(e){
+            console.log(e.type+'i up')
+        }
+        
+       
+        /**
+         * 修改文档
+         */
+       
+        // window.onload = () => {
+        //     const divParent = document.createElement('div');
+        //     const div1 = document.createElement('div');
+        //     const div2 = document.createElement('div');
+        //     const div3 = document.createElement('div');
+        //     // 创建一个node节点
+        //     const div1Text = document.createTextNode('div1');
+        //     const div2Text = document.createTextNode('div2');
+        //     const div3Text = document.createTextNode('div3');
+        //     // 创建一个文本内容
+        //     div1.append(div1Text);
+        //     div2.append(div2Text);
+        //     div3.append(div3Text);
+        //     div1.style.backgroundColor = 'red';
+        //     div2.style.backgroundColor = 'blue';
+        //     div3.style.backgroundColor = 'green';
+        //     // divParent.append(div1,div2)
+        //     divParent.prepend(div1)
+        //     // div1.before(div2)
+        //     div1.after(div2)
+        //     div1.replaceWith(div3)
+        //     // divParent.prepend(div2)
+        //     // 文本添加到node节点上
+        //     document.body.appendChild(divParent);
+        //     // node节点添加到body上
+
+        //     // div2.remove()
+        //     // div2.parentNode.removeChild(div2)
+        // }
+        
+
+        // const para = document.querySelectorAll('p')
+        // 返回包含p的节点列表[]，原型是NodeList 原型对象是Object
+        
+        // const paraFirst = document.querySelector('.first');
+        // const paraSecond = document.querySelector('.second');
+        // const paraThird = document.querySelector('.third'); //Node
+        // // const paraThirdElem = document.getElementById('third');//Element
+        // const span = document.querySelector('span');
+        // const text = document.querySelector('text');
+        /**
+         * 元素节点操作
+         */
+
+        // console.log(paraThird.nodeName)
+        // console.log(paraThird.textContent)
+        // console.log(paraThird.innerHTML)
+        // attribute
+        // console.log(paraSecond.hasAttribute('name'))
+        // console.log(paraSecond.getAttribute('id'))
+        // paraSecond.setAttribute('hidden','true')
+        // paraFirst.removeAttribute('hidden')
+        // console.log(paraFirst.attributes) //nameNodeMap
+        // console.log(paraSecond.dataset.paramName) //自定义的数据
+        // // 控制是style
+        // paraFirst.style.color = 'green'
+
+
+
+        // paraThird.textContent = 'text'
+        // paraThird.innerHTML = '<span style="color:yellow"> yellow </span>'
+        // const para = document.getElementById('first-id')
+        //  const para = document.getElementsByName('para') //NodeList
+        //  const para = document.getElementsByTagName('p') //HTMLCollection
+        //  const para = document.getElementsByClassName('first') //HTMLCollection
+       
+        // console.log(para, 
+        // 'nodeType: '+para.nodeType, 
+        // 'nodeName: '+ para.nodeName, 
+        // 'span-nodeValue: '+span.nodeValue, 
+        // 'hasChildNodes: '+para.hasChildNodes(), 
+        // '查询是否存在指定的子节点span: '+para.contains(span))
+
+        // window.onload = () => {
+        //     // onload比本来存在于html中的标签加载的晚
+        //     const heading = document.createElement('h1');
+        //     // 创建一个node节点
+        //     const headingText = document.createTextNode('big Head!');
+        //     // 创建一个文本内容
+        //     heading.appendChild(headingText);
+        //     // 文本添加到node节点上
+        //     document.body.appendChild(heading);
+        //     // node节点添加到body上
+        // }
+    </script>
+</body>
+</html>
