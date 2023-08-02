@@ -203,7 +203,9 @@ normal flow (正常布局流)文本流是html默认的布局方式
 - flex:1 的含义 1代表的比例（100%） 每个元素**等分** 每个元素都是一个flex-item
   - 如果有一个元素是flex:2 （三个元素有一个占2，则相当于有了4个flex-item, 有一个占2/4）
   - flex 是一个缩写属性 `flex: flex-grow flex-shrink flex-basis`
-
+  - flex-grow:占剩余空间比例
+  - flex-shrink:收縮  
+  - flex-basis 初始大小，但会因为grow和shrink变化 max-width/min-width > flex-basis > width > box
 - 给子元素设置order来改变排列的顺序
   - order:0 (default)
   - 递增顺序显示 0排最前面

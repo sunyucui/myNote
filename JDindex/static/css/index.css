@@ -29,6 +29,10 @@ ul {
 li {
     display: inline-block;
 }
+img{
+    max-width: 100%;
+    object-fix:cover;
+}
 
 .shortcut {
     border-bottom: 1px solid #ddd;
@@ -186,58 +190,142 @@ li {
     padding: 1px;
     bottom: 5px;
     left: 50%;
-    /* right: -1px; */
 }
-
+/* 主图主体部分 */
 .main {
     display: flex;
     justify-content: space-around;
     height: 480px;
     width: 80%;
-    margin: 0 auto;
+    margin: 10px auto;
+    gap:10px;
 }
 
 .main .aside {
     width: 200px;
     background-color: #fff;
-    margin: 10px 5px;
+    padding-top: 10px;
 }
 
-.main .recommend,
-.main .user {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-    flex: 1;
-    background-color: #fff;
-    margin: 10px 5px;
-}
 
-.main .swiper {
-    flex: 3;
-    margin: 10px 5px;
-}
 
 .main .menu {
+    display: flex;
+    flex-wrap: wrap;
     font-size: 14px;
+    overflow: hidden;
 }
 
-.main .menu ul{
-    
-   
-}
+
 .main .menu li {
-    width: 95%;
+    width: 100%;
     padding: 3px 0px 3px 10px;
 }
 
 .main .menu li:hover {
     background-color: rgb(217,217,217);
 }
-.main .swiper{
-    display: flex;
+/* 轮播图 */
+.main .swiper {
+    flex: 3;
+} 
+.main .swiper .img-slide{
+    height: 480px;
 }
-.main .swiper img{
-   max-width: 100%;
+
+
+.main .recommend{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    gap:10px;
+    background-color: inherit;
+   
+}
+
+.main .recommend .recommendItem{
+    width:100%;
+    flex-grow:1;
+    height: 154px;
+}
+
+
+.main .user{
+    flex: 1;
+    background-color: #fff;
+}
+
+/* footer */
+.footer .service{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 103px;
+    border-bottom: 1px solid #dedede;
+}
+.footer .service .item{
+    display: flex;
+    align-items: center;
+    width:300px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.footer .service img{
+    max-width: 50px;
+}
+
+.footer .help{
+    display: flex;
+    justify-content: center;
+    
+    width: 80%;
+    height: 200px;
+    margin: 0 auto;
+    /* padding: 20px 10px; */
+    border-bottom: 1px solid #dedede;
+}
+.footer .help .item{
+    width: 200px;
+    color: #666;
+}
+.footer .help .item h5{
+    margin: 20px 0px 10px 0px;
+    font-size:14px;
+}
+.footer .help .item li{
+    width: 100%;
+    font-size:12px;
+}
+.footer .copyright{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    /* height: 244px; */
+    margin: 0 auto;
+    font-size: 12px;
+}
+.copyright .nav{
+    width: 100%;
+    color: #666;
+    background-color: inherit;
+    text-align: center;
+    border: none;
+    margin: 15px 0px 10px 0px;
+}
+.copyright .nav a{
+    padding: 0px 5px;
+}
+.copyright .content{
+    width: 100%;
+    color:#999;
+    background-color: inherit;
+    text-align: center;
+    border: none;
+    margin: 0px 0px 5px 0px;
+}
+.copyright img{
+    max-height: 50px;
+    margin: 50px 0px;
 }

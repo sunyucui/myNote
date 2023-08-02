@@ -1,3 +1,10 @@
 # 学习记录
 - html 页面样式重置
  - *{} 设置内外边距0
+- flex布局padding没有效果 可以使用margin
+- 屏幕百分比变化了 页面有些变形？
+- 轮播图显示
+- 渐入的动画效果，图片显示的时候
+- flex 父类使用gap设置item之间的间隔
+- li设置padding超出父级盒子？现在解决是没有用布局使用 边距调整的 可以试试flex-shrink收缩  
+- display:none; visibility:hidden hidden属性
