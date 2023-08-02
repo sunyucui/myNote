@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="flex.css"></link>
+    <style>
+        .wrap{
+            display: flex;
+        }
+        .left,.right{
+            flex-grow: 1;
+            background-color: green;
+        }
+        .center{
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
+    <div class="wrap">
+        <div class="left">left</div>
+        <div class="center">center</div>
+        <div class="right">right</div>
+    </div>
     
 </body>
 </html>

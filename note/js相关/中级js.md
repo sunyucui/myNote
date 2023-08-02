@@ -2,12 +2,12 @@
 content 
 - [Promise](#promise)
 - [async/await](#asyncawait)
-- proxy
-- Reflect
+- [proxy](#proxy)
+- [Reflect](#reflect)
 - 深拷贝/浅拷贝
-- DOM
+- [DOM](#dom文档对象模型)
 - BOM
-- 事件
+- [事件](#事件处理)
 - 浏览器
 ---
 ## 异步任务--Promise--Generator--async/await
@@ -211,3 +211,10 @@ Attribute
 - onload事件 资源加载完毕
 ***
 ### 表单操作
+## BOM浏览器对象模型
+window全局对象 不同tag之间不共享 js全局作用域的属性和方法会写到window中
+- Location
+- History
+- Screen
+- Navigator
+- document
