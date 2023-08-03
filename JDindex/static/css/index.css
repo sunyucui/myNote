@@ -252,9 +252,102 @@ img{
 
 
 .main .user{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     flex: 1;
     background-color: #fff;
 }
+.main .user .container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    text-align: center;
+    font-size: 12px;
+    color:#666;
+    margin-top: 10px;
+}
+.main .user .container .userRight{
+    width: 166px;
+    height: 45px;
+    background: linear-gradient(269.9deg,#FEEAE8 .09%,#FFF3E7 99.91%);
+    border-radius: 4px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: auto 8px; */
+}
+.main .user .container .userRight .title{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    gap:2px;
+    margin-left:8px;
+}
+.main .user .container .userRight .qrcode{
+    width: 30px;
+    margin-right:8px;
+    margin-top: 4px;
+}
+.main .user .container .plus{
+    width: 166px;
+    height: 45px;
+    border-radius: 4px;
+    background: linear-gradient(90deg,#FFF4D2,#FFECB6);
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main .user .container .plus .title{
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    gap:2px;
+    margin-left:8px;
+}
+.main .user .container .plus .plusArray{
+    flex:1;
+
+}
+.main .user .service{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.main .user .service .item{
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 8px;
+}
+.main .user .service .item img{
+    max-width: 28px;
+}
+.main .user .news{
+    font-size: 12px;
+    align-self: flex-start;
+}
+.main .user .news .title{
+    display: inline-block;
+    color:#e1251b;
+    width:35px;
+    background-color: rgba(225,37,27,.08);
+    text-align: center;
+    margin-right:3px;
+}
+
 /* 秒杀 */
 .seckill{
     display: flex;
@@ -300,11 +393,69 @@ img{
     width: 200px;
 }
 /* 频道 */
+.centerTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+} 
+.centerTitle img{
+    max-width: 35px;
+}
+.centerTitle .title{
+    font-size: 28px;
+    color: #333;
+    margin: auto 15px;
+}
 .channel{
     display: flex;
     width:80%;
-    height: 260px;
     margin:0 auto;
+    gap: 10px;
+}
+.channel .channelItem{
+    width:290px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.channel .channelItem .item{
+    height: 180px;
+    background-color: #fff;
+}
+.channel .channelItem .item .title{
+    margin:17px 0px 13px 30px;
+}
+.channel .channelItem .item .title .name{
+    font-size: 22px;
+    font-weight: 700;
+    color:#333;
+}
+.channel .channelItem .item .title .subname{
+    font-size: 14px;
+    color:#999;
+}
+.channel .channelItem .item .infoImg{
+    display: flex;
+    max-width: 100px;
+    gap:30px;
+    margin-left: 30px;
+}
+
+/* 为你推荐 */
+.feedsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width:80%;
+    margin:0 auto;
+    gap: 10px;
+    /* justify-content: center;
+    align-items: center; */
+}
+.feedsContainer .item{
+    width:230px;
+    height:322px;
+    background-color: #fff;
 }
 /* footer */
 .footer .service{
@@ -380,3 +531,4 @@ img{
     max-height: 50px;
     margin: 50px 0px;
 }
+
