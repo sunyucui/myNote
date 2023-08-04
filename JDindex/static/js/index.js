@@ -31,7 +31,7 @@ createCircle();
 
 // 底部圆点随着轮播变化
 const circlechange = (index) => {
-    console.log('current-ol:' + index)
+   
     // 重置
     let child = [...ol.children]
     child.forEach(i => i.className = 'current')
@@ -42,13 +42,11 @@ const circlechange = (index) => {
 
 
 const swiper = () => {
-    // console.log("change before:"+swiperIndex) //0
     // 全部隐藏
     swiperImg.forEach((item) => item.style.display = 'none')
     // 显示当前
     swiperImg[swiperIndex++].style.display = 'block'
-    // console.log("change after:"+swiperIndex) //0
-}
+ }
 
 let swiperTimer = setInterval(() => {
     swiperIndex = swiperIndex >= swiperImg.length ? 0 : swiperIndex;
@@ -79,7 +77,7 @@ mainSwiperLeftBtn.addEventListener('click', e => swiperLeftHandler(e))
 mainSwiperRightBtn.addEventListener('click', e => swiperRightHandler(e))
 
 const swiperLeftHandler = function (e) {
-    console.log('click left')
+   
     let back = currIndex-1
     // 图片显示上一张
     swiperImg.forEach((item) => item.style.display = 'none')
@@ -90,8 +88,6 @@ const swiperLeftHandler = function (e) {
     currIndex = circlechange(back);
 }
 const swiperRightHandler = function (e) {
-    console.log('click right')
-    
     let next = currIndex+1
     
     swiperImg.forEach((item) => item.style.display = 'none')
@@ -120,6 +116,18 @@ const recommend = () => {
     })
 }
 const recommendTimer = setInterval(recommend, 3000)
+
+var recommendNode = getElem('.recommend')
+let recommendLeftBtn = getElem('#recommendLeftBtn')
+let recommendRightBtn = getElem('#recommendRightBtn')
+recommendNode.addEventListener('mouseenter',() => {
+    recommendLeftBtn.removeAttribute('hidden')
+    recommendRightBtn.removeAttribute('hidden')
+})
+recommendNode.addEventListener('mouseleave',() => {
+    recommendLeftBtn.setAttribute('hidden','hidden')
+    recommendRightBtn.setAttribute('hidden','hidden')
+})
 
 /**
  * 自动生成list

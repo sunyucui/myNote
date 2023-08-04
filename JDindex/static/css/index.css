@@ -233,9 +233,10 @@ img{
 .main .swiper {
     flex: 3;
     position: relative;
-    color:#fff;
+    
 }
-.main .swiper .leftBtn{
+/* .main .swiper .leftBtn{ */
+.leftBtn{
     position: absolute;
     top: 50%;
     left:0;
@@ -254,9 +255,11 @@ img{
     transition: background-color .2s ease;
     text-align: center;
     padding-right: 5px;
+    color:#fff;
 }
 
-.main .swiper .rightBtn{
+/* .main .swiper .rightBtn{ */
+.rightBtn{
     position: absolute;
     top: 50%;
     right:0;
@@ -275,8 +278,9 @@ img{
     transition: background-color .2s ease;
     text-align: center;
     padding-left: 5px;
+    color:#fff;
 }
-.main .swiper .leftBtn:hover,.main .swiper .rightBtn:hover {
+.leftBtn:hover,.rightBtn:hover {
     background-color: rgba(0,0,0,.50);
     cursor:pointer;
 }
@@ -317,6 +321,7 @@ img{
     flex: 1;
     gap:10px;
     background-color: inherit;
+    position:relative;
    
 }
 
