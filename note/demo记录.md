@@ -8,3 +8,8 @@
 - flex 父类使用gap设置item之间的间隔
 - li设置padding超出父级盒子？现在解决是没有用布局使用 边距调整的 可以试试flex-shrink收缩  
 - display:none; visibility:hidden hidden属性
+- 1.js获取同文件下的json文件文档数据
+- 2 json的数据格式
+- 3 打印测试
+- 4 循环生成dom节点
+- 学习XMLHttpRequest

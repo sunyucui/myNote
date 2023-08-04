@@ -15,7 +15,8 @@ a {
 }
 
 a:hover {
-    color: rgb(225, 37, 27)
+    color: rgb(225, 37, 27);
+    cursor: pointer;
 }
 
 /* 修改ul li默认样式 */
@@ -28,10 +29,12 @@ ul {
 
 li {
     display: inline-block;
+    cursor: pointer;
 }
 img{
     max-width: 100%;
     object-fix:cover;
+    cursor: pointer;
 }
 
 .shortcut {
@@ -453,10 +456,125 @@ img{
     align-items: center; */
 }
 .feedsContainer .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width:230px;
     height:322px;
     background-color: #fff;
+    position: relative;
+    cursor: pointer;
 }
+.feedsContainer .item img{
+    max-width: 150px;
+    margin: 20px auto;
+}
+.feedsContainer .item .info{
+   padding: 15px;
+}
+.feedsContainer .item .info .price{
+    margin-top: 10px;
+    font-weight: 700;
+    color:#e1251b
+}
+.feedsContainer .item .info .price .unit,.feedsContainer .item .info .price .flo{
+    font-size: 12px;
+}
+.feedsContainer .item .info .price .int{
+    font-size: 22px;
+}
+.feedsContainer .item .info .name .tag{
+    color:#fff;
+    background-color: #e1251b;
+    display: inline-block;
+    width: 34px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 2px;
+}
+/* hover部分 */
+.feedsContainer .item .hover .delete{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+.feedsContainer .item .hover .btnBox{
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    height: 66px;
+    text-align: center;
+    cursor: pointer;
+    background: linear-gradient(180deg,rgba(255,255,255,.8) 0,white 35%,white);
+}
+.feedsContainer .item .hover .btn{
+    height: 28px;
+    width: 120px;
+    display: inline-block;
+    font-size: 12px;
+    color: #fff;
+    border: 1px solid #353131;
+    border-radius: 15px;
+    line-height: 28px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 18px;
+    background-color: #333;
+}
+.feedsContainer .item .hover .btn:hover{
+    background-color:#e1251b;
+}
+.feedsContainer .feedhotword{
+    width:230px;
+    height:322px;
+    background-image: url('../img/red.png');
+    background-size: 230px 322px;
+}
+.feedsContainer .feedhotword .title{
+    /* display: inline-block; */
+    width: 110px;
+    height: 34px;
+    line-height: 34px;
+    color: #fff;
+    background: #f2272b;
+    margin: 20px auto 37px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 50px;
+    /* margin: 0 auto; */
+
+}
+.feedsContainer .feedhotword .hotItem{
+    display: flex;
+    justify-content: space-evenly;
+    
+    flex-wrap: wrap;
+}
+.feedsContainer .feedhotword .hotItem .btn{
+  
+    margin-bottom: 10px;
+    width: 88px;
+    border: 1px solid #ffe0e8;
+    border-radius: 5px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    text-align: center;
+    color: #e2231a;
+}
+.feedsContainer .feedhotword .hotItem .btn:hover{
+    background-color: #e2231a;
+    color:#fff;
+    cursor:pointer;
+}
+
 /* footer */
 .footer .service{
     display: flex;
