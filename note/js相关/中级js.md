@@ -8,7 +8,8 @@ content
 - [DOM](#dom文档对象模型)
 - BOM
 - [事件](#事件处理)
-- 浏览器
+- 浏览器存储（cookie LocalStorage sessionStorage）
+- 浏览器缓存（强缓存 协商缓存）
 ---
 ## 异步任务--Promise--Generator--async/await
 ## Promise
@@ -218,3 +219,5 @@ window全局对象 不同tag之间不共享 js全局作用域的属性和方法�
 - Screen
 - Navigator
 - document
+## 浏览器存储（cookie LocalStorage sessionStorage）
+- Chrome会禁止掉cookie

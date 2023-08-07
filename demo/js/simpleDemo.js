@@ -1,5 +1,20 @@
 console.log("syc")
 
+//cookie
+document.cookie = 'name=syc';
+console.log(document.cookie)
+
+// CommonJS 必须在模块化的环境下
+// import {state,exits,sayHello} from './a'
+// console.log(state)
+// console.log(exits)
+// console.log(sayHello)
+// import('./a').then(a => {
+//     console.log(a.state)
+//     console.log(a.exits)
+//     console.log(a.sayHello)
+// })
+
 
 
 // var person = {
